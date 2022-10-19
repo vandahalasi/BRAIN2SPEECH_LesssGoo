@@ -1,4 +1,4 @@
-# BRAIN2SPEECH_LesssGoo #
+# Team LesssGoo #
 
 ## Participants ##
 * Halasi Vanda Réka (HL382A)
