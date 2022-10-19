@@ -1,0 +1,3 @@
+[submodule "SingleWordProductionDutch"]
+	path = SingleWordProductionDutch
+	url = https://github.com/neuralinterfacinglab/SingleWordProductionDutch.git
