@@ -24,7 +24,7 @@ def write_statistics_to_json(data):
         outfile.write(json_object)
 
 
-def get_dataloaders(batch_size=32):
+def get_dataloaders(batch_size=32, window=3):
     """
     Loads features and spectograms into SpectogramDataset and creates train, 
     validation and test dataloaders.
@@ -60,9 +60,9 @@ def get_dataloaders(batch_size=32):
     # write_statistics_to_json(features_train)
 
     #create a Dataset
-    train_dataset = SpectogramDataset(features_train, spectogram_train)
-    val_dataset = SpectogramDataset(features_val, spectogram_val)
-    test_dataset = SpectogramDataset(features_test, spectogram_test)
+    train_dataset = SpectogramDataset(features_train, spectogram_train, window)
+    val_dataset = SpectogramDataset(features_val, spectogram_val, window)
+    test_dataset = SpectogramDataset(features_test, spectogram_test, window)
 
     #create dataloader
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle = True)
