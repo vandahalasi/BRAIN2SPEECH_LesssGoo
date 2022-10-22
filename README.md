@@ -30,8 +30,8 @@ After this a *feature* folder will appear under the *SingleWordProductionDutch* 
 *SpectogramDataset* class is using the feature folder. 
 The dataset class is in [spectogram_dataset.py](/spectogram_dataset.py). 
 It normalizes the given tensors and gives back a windowed feature tensor as input and a windowed spectogram as output. 
-The dimensions of the input is (batch, window, 1143), the scalar 1143 stands for the number of feature channels. 
-The dimensions of the output is (batch, window, 23).
+The dimensions of the input is (batch_size, window_size, 1143), the scalar 1143 stands for the number of feature channels. 
+The dimensions of the output is (batch_size, window_size, 23).
 ### Dataloaders ###
 The Dataloader implementation is in the (create_dataloaders.py)[/create_dataloaders.py]. 
 In this file the spectograms and feature tensors are loaded and a [json file](/train_stats.json) is made for the normalization. 
