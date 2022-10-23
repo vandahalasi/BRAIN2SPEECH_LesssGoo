@@ -7,7 +7,12 @@
 
 ## BRAIN2SPEECH Project ##
 The aim of this project is to generate audio files based on brain signals using Machine Learning based algorithms. We are using the following [article](https://www.nature.com/articles/s41597-022-01542-9) as a reference. The preprocessing steps such as filtering and channel selection have been taken from their work, which can be found in [SingleWordProductionDutch](https://github.com/neuralinterfacinglab/SingleWordProductionDutch/tree/28fb2d2db4c3332ba95f831208ffb5dd3dcde223) submodule.
+NOTE: after cloning the repo the following command needs to be run to access the submodule
 
+```
+git submodule init
+git dubmodule update
+```
 
 ## Installation guide: ##
 - [ ] Navigate to root directory
