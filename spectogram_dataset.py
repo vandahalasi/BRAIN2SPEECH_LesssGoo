@@ -10,15 +10,15 @@ class SpectogramDataset(torch.utils.data.Dataset):
         # Opening JSON file for mean and std of training set
         f = open("train_stats.json")
         stats = json.load(f)
-        train_mean = stats["mean"]
-        train_std = stats["std"]
-        # Normalization
-        self.features=(self.features-train_mean)/train_std
-
+        self.train_mean = stats["mean"]
+        self.train_std = stats["std"]
+        
 
     def __len__(self):
         return self.features.shape[0]-self.window
 
 
     def __getitem__(self, index):
-        return self.features[index:index+self.window,:], self.target_spectogram[index:index+self.window,:]
+        # Normalization
+        input = (self.features[index:index+self.window,:]-self.train_mean)/self.train_std
+        return input, self.target_spectogram[index:index+self.window,:]

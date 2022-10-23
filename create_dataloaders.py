@@ -24,7 +24,7 @@ def write_statistics_to_json(data):
         outfile.write(json_object)
 
 
-def get_dataloaders(batch_size=32, window=3):
+def get_data():
     """
     Loads features and spectograms into SpectogramDataset and creates train, 
     validation and test dataloaders.
@@ -33,22 +33,35 @@ def get_dataloaders(batch_size=32, window=3):
 
     participants = ['sub-%02d'%i for i in range(1,11)]
 
-    #Load the data
-    spec_ptcp = np.load(os.path.join(feat_path,f'{participants[0]}_spec.npy'))
-    feat_ptcp = np.load(os.path.join(feat_path,f'{participants[0]}_feat.npy'))
-    spectogram_train, spectogram_val, spectogram_test = np.split(spec_ptcp, 
-                [int(len(spec_ptcp)*0.8), int(len(spec_ptcp)*0.85)])
-    features_train, features_val, features_test = np.split(feat_ptcp, 
-                [int(len(feat_ptcp)*0.8), int(len(feat_ptcp)*0.85)])
+    feat_names = np.load(os.path.join(feat_path,f'{participants[0]}_feat_names.npy'))
+    feat_name_dict = {feat : idx for idx, feat in enumerate(feat_names)}
+    for ptcp in participants:
+        feat_names = np.load(os.path.join(feat_path,f'{ptcp}_feat_names.npy'))
+        for feat_name in feat_names:
+            if feat_name not in feat_name_dict.keys():
+                feat_name_dict[feat_name] = len(feat_name_dict)
 
-    for ptcp in participants[1:2]:
+    for idx, ptcp in enumerate(participants[:4]):
         spec_ptcp = np.load(os.path.join(feat_path,f'{ptcp}_spec.npy'))
         feat_ptcp = np.load(os.path.join(feat_path,f'{ptcp}_feat.npy'))
+        feat_names = np.load(os.path.join(feat_path,f'{ptcp}_feat_names.npy'))
+        right_dim_feat = np.zeros((len(feat_ptcp),len(feat_name_dict)))
+        for i, feat_name in enumerate(feat_names):
+            j = feat_name_dict[feat_name]
+            right_dim_feat[:,j] = feat_ptcp[:,i]
 
         train_spec, val_spec, test_spec = np.split(spec_ptcp, [int(len(spec_ptcp)*0.8), 
                 int(len(spec_ptcp)*0.85)])
-        train_feat, val_feat, test_feat = np.split(feat_ptcp, [int(len(feat_ptcp)*0.8), 
-                int(len(feat_ptcp)*0.85)])
+        train_feat, val_feat, test_feat = np.split(right_dim_feat, [int(len(right_dim_feat)*0.8), 
+                int(len(right_dim_feat)*0.85)])
+
+        if idx == 0:
+            spectogram_train = train_spec
+            spectogram_val = val_spec
+            spectogram_test = test_spec
+            features_train = train_feat
+            features_val = val_feat
+            features_test = test_feat
 
         spectogram_train = np.concatenate((spectogram_train, train_spec), axis=0)
         spectogram_val = np.concatenate((spectogram_val, val_spec), axis=0)
@@ -57,13 +70,17 @@ def get_dataloaders(batch_size=32, window=3):
         features_val = np.concatenate((features_val, val_feat), axis=0)
         features_test = np.concatenate((features_test, test_feat), axis=0)
 
-    # write_statistics_to_json(features_train)
+    return spectogram_train, spectogram_val, spectogram_test, features_train, features_val, features_test
 
+def create_datasets(spectogram_train, spectogram_val, spectogram_test, features_train, features_val, features_test, window=3):
     #create a Dataset
     train_dataset = SpectogramDataset(features_train, spectogram_train, window)
     val_dataset = SpectogramDataset(features_val, spectogram_val, window)
     test_dataset = SpectogramDataset(features_test, spectogram_test, window)
 
+    return train_dataset, val_dataset, test_dataset
+
+def create_dataloaders(train_dataset, val_dataset, test_dataset, batch_size=32):
     #create dataloader
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle = True)
     eval_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle = False)
