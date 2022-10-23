@@ -5,7 +5,7 @@ import os
 
 
 import matplotlib.pyplot as plt
-from models import NWBDataModel
+from data_discovery_helpers.models import NWBDataModel
 
 
 class NWBData:

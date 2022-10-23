@@ -1,4 +1,4 @@
-from models import PreProcessedDataModel
+from data_discovery_helpers.models import PreProcessedDataModel
 import numpy as np
 import os
 

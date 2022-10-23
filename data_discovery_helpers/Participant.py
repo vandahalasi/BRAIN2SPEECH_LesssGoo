@@ -1,6 +1,6 @@
 import pandas as pd
 
-from models import ParticipantModel,SexEnum
+from data_discovery_helpers.models import ParticipantModel,SexEnum
 
 
 class Participant:
