@@ -38,7 +38,7 @@ It normalizes the given tensors and gives back a windowed feature tensor as inpu
 The dimensions of the input is (batch_size, window_size, 4860), the scalar 4860 stands for the number of feature channels. 
 The dimensions of the output is (batch_size, window_size, 23).
 ### Dataloaders ###
-The Dataloader implementation is in the (create_dataloaders.py)[/create_dataloaders.py]. 
+The Dataloader implementation is in the [create_dataloaders.py](/create_dataloaders.py). 
 In this file the spectograms and feature tensors are loaded and a [json file](/train_stats.json) is made for the normalization. 
 The cross-validation ratio is 80-5-15. 
 It loads every participants tensors and split each of them up. 
