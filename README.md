@@ -22,6 +22,10 @@ git dubmodule update
 
 
 ## Data preprocessing, dataset class and dataloaders (I.Milestone) ##
+### Data discovery ###
+In [data_discovery_helpers](data_discovery_helpers) folder there are some visualizer python files. In [data_discovery_pre_processing](data_discovery_pre_processing.ipynb) some basic information is shwon and illustrated.
+
+
 ### Preprocessing ###
 The original dataset can be downloaded from [here](https://osf.io/nrgx6/). 
 We are using [extract_features.py](https://github.com/neuralinterfacinglab/SingleWordProductionDutch/blob/main/extract_features.py) from [SingleWordProductionDutch](https://github.com/neuralinterfacinglab/SingleWordProductionDutch/tree/28fb2d2db4c3332ba95f831208ffb5dd3dcde223) submodule to create the target spectogram and extract features with channel names.
