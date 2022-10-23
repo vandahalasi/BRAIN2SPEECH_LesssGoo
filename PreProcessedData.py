@@ -53,11 +53,10 @@ class PreProcessedData:
         cm='viridis'
         fig, ax = plt.subplots(1, sharex=True)
         pSta=int(start_s*(1/frameshift));pSto=int(stop_s*(1/frameshift))
-        ax[0].imshow(np.flipud(spectrogram[pSta:pSto, :].T), cmap=cm, interpolation=None,aspect='auto')
-        ax[0].set_ylabel('Log Mel-Spec Bin')
+        ax.imshow(np.flipud(spectrogram[pSta:pSto, :].T), cmap=cm, interpolation=None,aspect='auto')
+        ax.set_ylabel(f'Log Mel-Spec Bin of {self.__preprocessed_data_model.p_id}')
         
-        plt.show()
-        plt.title(f"Spectogram of {self.__preprocessed_data_model.p_id}")
+        
 
     def display_feature_map(self):
         pass
