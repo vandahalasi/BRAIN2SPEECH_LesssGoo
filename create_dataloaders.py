@@ -29,7 +29,7 @@ def get_data():
     Loads features and spectograms into SpectogramDataset and creates train, 
     validation and test dataloaders.
     """
-    feat_path = r'./SingleWordProductionDutch/features'
+    feat_path = r'./features'
 
     participants = ['sub-%02d'%i for i in range(1,11)]
 
@@ -93,10 +93,5 @@ def main():
     # Only need to be run if train_stats.json is missing
     # write_statistics_to_json(features_train)
     train_dataset, val_dataset, test_dataset = create_datasets(spectogram_train, spectogram_val, spectogram_test, features_train, features_val, features_test, window=3)
-    train_loader, eval_loader, test_loader = create_dataloaders(train_dataset, val_dataset, test_dataset, batch_size=32)
-    for input, output in train_loader:
-        print(input.shape)
-        print(output.shape) 
-
-if __name__ == "__main__":
-    main()
+    return create_dataloaders(train_dataset, val_dataset, test_dataset, batch_size=32)
+ 

@@ -6,3 +6,4 @@ scipy
 pynwb
 jsonlib
 torch
+wavfile
