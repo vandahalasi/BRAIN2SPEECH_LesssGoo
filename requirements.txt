@@ -4,3 +4,5 @@ numpy
 pandas
 scipy
 pynwb
+jsonlib
+torch
