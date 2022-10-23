@@ -1,3 +1,6 @@
-tensorflow
+torch
 scipy
 numpy
+pandas
+scipy
+pynwb

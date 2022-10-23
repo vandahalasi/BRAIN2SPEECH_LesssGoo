@@ -1,2 +1,7 @@
 build
 brain_2_speech.egg-info
+features
+SingleWordProductionDutch-iBIDS
+.ipynb_checkpoints
+__pycache__/
+SingleWordProductionDutch-iBIDS.zip
