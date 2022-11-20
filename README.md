@@ -51,4 +51,5 @@ The function in this file gives back the dataloaders.
 
 ## Trainig and Validation (II. Milestone)
 For the second Milestone we chose to pathes. A Tensorflow model was created in the [training_1participant.ipynb](https://github.com/vandahalasi/BRAIN2SPEECH_LesssGoo/blob/main/training_1participant.ipynb) notebook which uses a convolutional neural network. The other way was creating an LSTM model using Pytorch and it was working with the previously created dataloaders. The LSTM model implementation is in the [LSTM.py](https://github.com/vandahalasi/BRAIN2SPEECH_LesssGoo/blob/main/LSTM.py) file and training and testing fucntion are located in [https://github.com/vandahalasi/BRAIN2SPEECH_LesssGoo/blob/main/LSTM_Train_n_Validation_notebook.ipynb](LSTM_Train_n_Validation_notebook.ipynb) notebook.
-The LSTM model is using Adam optimizer and MSE loss. It is using a Linear layer to encode the correct dimensions.
+Both models are using Adam optimizer and MSE loss. The LSTM is using a Linear layer to encode the correct dimensions. 
+The main difference is that the basic convolutional model is working with only one participants spectogram.
