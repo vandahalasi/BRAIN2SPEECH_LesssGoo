@@ -29,7 +29,7 @@ def get_data():
     Loads features and spectograms into SpectogramDataset and creates train, 
     validation and test dataloaders.
     """
-    feat_path = r'./features'
+    feat_path = r'./SingleWordProductionDutch/features'
 
     participants = ['sub-%02d'%i for i in range(1,11)]
 
