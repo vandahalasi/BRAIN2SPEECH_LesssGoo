@@ -24,12 +24,11 @@ def write_statistics_to_json(data):
         outfile.write(json_object)
 
 
-def get_data():
+def get_data(data_path):
     """
     Loads features and spectograms into SpectogramDataset and creates train, 
     validation and test dataloaders.
     """
-    feat_path = r'./SingleWordProductionDutch/features'
 
     participants = ['sub-%02d'%i for i in range(1,11)]
 
