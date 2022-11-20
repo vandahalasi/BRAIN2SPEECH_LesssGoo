@@ -24,7 +24,7 @@ def write_statistics_to_json(data):
         outfile.write(json_object)
 
 
-def get_data(data_path):
+def get_data(feat_path):
     """
     Loads features and spectograms into SpectogramDataset and creates train, 
     validation and test dataloaders.
