@@ -48,3 +48,7 @@ The cross-validation ratio is 80-5-15.
 It loads every participants tensors and split each of them up. 
 It is done this way, beacuse we do not want test set to be made from only one participants recordings.
 The function in this file gives back the dataloaders.
+
+## Trainig and Validation (II. Milestone)
+For the second Milestone we chose to pathes. A Tensorflow model was created in the [training_1participant.ipynb](https://github.com/vandahalasi/BRAIN2SPEECH_LesssGoo/blob/main/training_1participant.ipynb) notebook which uses a convolutional neural network. The other way was creating an LSTM model using Pytorch and it was working with the previously created dataloaders. The LSTM model implementation is in the [LSTM.py](https://github.com/vandahalasi/BRAIN2SPEECH_LesssGoo/blob/main/LSTM.py) file and training and testing fucntion are located in [https://github.com/vandahalasi/BRAIN2SPEECH_LesssGoo/blob/main/LSTM_Train_n_Validation_notebook.ipynb](LSTM_Train_n_Validation_notebook.ipynb) notebook.
+The LSTM model is using Adam optimizer and MSE loss. It is using a Linear layer to encode the correct dimensions.
