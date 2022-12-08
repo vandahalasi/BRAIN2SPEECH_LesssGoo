@@ -73,9 +73,9 @@ def get_data(feat_path):
 
 def create_datasets(spectogram_train, spectogram_val, spectogram_test, features_train, features_val, features_test, window=3):
     #create a Dataset
-    train_dataset = SpectogramDataset(features_train, spectogram_train, window)
-    val_dataset = SpectogramDataset(features_val, spectogram_val, window)
-    test_dataset = SpectogramDataset(features_test, spectogram_test, window)
+    train_dataset = SpectogramDataset(features_train, spectogram_train, window, json_path)
+    val_dataset = SpectogramDataset(features_val, spectogram_val, window, json_path)
+    test_dataset = SpectogramDataset(features_test, spectogram_test, window, json_path)
 
     return train_dataset, val_dataset, test_dataset
 

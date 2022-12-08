@@ -3,13 +3,13 @@ import json
 import numpy as np
 
 class SpectogramDataset(torch.utils.data.Dataset):   
-    def __init__(self, data, spectogram, window):
+    def __init__(self, data, spectogram, window, json_path):
         self.target_spectogram = np.array(spectogram, dtype=np.float32)
         self.features = data
         self.window = window
         
         # Opening JSON file for mean and std of training set
-        f = open("train_stats.json")
+        f = open(json_path)
         stats = json.load(f)
         self.train_mean = stats["mean"]
         self.train_std = np.array(stats["std"])
