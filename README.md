@@ -54,6 +54,6 @@ For the second Milestone we chose to pathes. A Tensorflow model was created in t
 Both models are using Adam optimizer and MSE loss. The LSTM is using a Linear layer to encode the correct dimensions. 
 The main difference is that the basic convolutional model is working with only one participants spectogram.
 
-## Training via Colab x Googl drive
+## Training via Colab x Google drive
 A google drive folder has been created to store the training output datas. In the runs folder there are loss functions which can be visualized with thensorboard. In tha audios folder there reconstructed audio files. The dataset has been uploaded there too and the notebook is also stored. The link to the drive folder is: https://drive.google.com/drive/folders/1c4wO73dK8Iaz4PfEYZf2vXVpyauowqKC?usp=sharing. The notebook is using the upper mentioned Dataloaders and LSTM modell.
 Our final paper can be found in [BRAIN2SPEECH_LesssGoo.pdf](https://github.com/vandahalasi/BRAIN2SPEECH_LesssGoo/blob/main/BRAIN2SPEECH_LesssGoo.pdf) file.
