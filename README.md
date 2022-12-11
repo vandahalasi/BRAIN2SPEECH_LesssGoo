@@ -52,7 +52,9 @@ The function in this file gives back the dataloaders.
 ## Trainig and Validation (II. Milestone)
 For the second Milestone we chose to pathes. A Tensorflow model was created in the [training_1participant.ipynb](https://github.com/vandahalasi/BRAIN2SPEECH_LesssGoo/blob/main/training_1participant.ipynb) notebook which uses a convolutional neural network. The other way was creating an LSTM model using Pytorch and it was working with the previously created dataloaders. The LSTM model implementation is in the [LSTM.py](https://github.com/vandahalasi/BRAIN2SPEECH_LesssGoo/blob/main/LSTM.py) file and training and testing fucntion are located in [LSTM_Train_n_Validation_notebook.ipynb](https://github.com/vandahalasi/BRAIN2SPEECH_LesssGoo/blob/main/LSTM_Train_n_Validation_notebook.ipynb) notebook.
 Both models are using Adam optimizer and MSE loss. The LSTM is using a Linear layer to encode the correct dimensions. 
-The main difference is that the basic convolutional model is working with only one participants spectogram.
+The main difference is that the basic convolutional model is working with only one participants spectogram. 
+
+We tried to improve the LSTM based solution with hyperparameter optimization in the seperate [LSTM_train_with_hyperparameter_tuning](https://github.com/vandahalasi/BRAIN2SPEECH_LesssGoo/blob/main/LSTM_train_with_hyperparameter_tuning.ipynb) notebook. We used the Ray tune library for this purpose. The attempt was not successful because the ray workers ran out of RAM due to the large amount of data.
 
 ## Training via Colab x Google drive
 A google drive folder has been created to store the training output datas. In the runs folder there are loss functions which can be visualized with thensorboard. In tha audios folder there reconstructed audio files. The dataset has been uploaded there too and the notebook is also stored. The link to the drive folder is: https://drive.google.com/drive/folders/1c4wO73dK8Iaz4PfEYZf2vXVpyauowqKC?usp=sharing. The notebook is using the upper mentioned Dataloaders and LSTM modell.
