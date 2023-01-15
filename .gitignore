@@ -8,3 +8,5 @@ SingleWordProductionDutch-iBIDS.zip
 demo_wav_file.wav
 demo_wavfile.wav
 deo_wavfile.wav
+spec_classifier/data
+spec_classifier/models

@@ -1,3 +1,9 @@
 [submodule "SingleWordProductionDutch"]
 	path = SingleWordProductionDutch
 	url = https://github.com/neuralinterfacinglab/SingleWordProductionDutch.git
+[submodule "pyAudioAnalysis"]
+	path = pyAudioAnalysis
+	url = https://github.com/tyiannak/pyAudioAnalysis.git
+[submodule "spec_classifier/pyAudioAnalysis"]
+	path = spec_classifier/pyAudioAnalysis
+	url = https://github.com/tyiannak/pyAudioAnalysis.git
